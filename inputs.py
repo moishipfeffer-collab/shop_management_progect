@@ -8,35 +8,31 @@ def get_input(massage,input_type):
             return user_input
         print(f"{input_type} can not be empty")
 
+def show_num_error_if_there_is(user_input,num):
+    valid = False
+    while not valid:
+        if check_num(user_input):
+            return int(user_input)
+        print(f"{num} must be a positive number")
+        
+
 def get_product_name():
-        name = get_input("enter product name: ","product name")
-        return name 
+        get_input("enter product name: ","product name")
 
 def get_category():
-    while True:
-        category = get_input("enter product category: ","category")
-        return category
+    get_input("enter product category: ","category")
 
 def get_product_price():
-    while True:
-        price = get_input("enter product price: ","price")
-        if check_num(price,"float"):
-            return price
-        print("price must be a positive number")
+    price = get_input("enter product price: ","price")
+    show_num_error_if_there_is(price,"price")
 
 def get_stock():
-    while True:
-        stock = get_input("enter beggining stock: ","stock")
-        if check_num(stock):
-            return stock
-        print("stock must be a hole positive number")
+    stock = get_input("enter beggining stock: ","stock")
+    show_num_error_if_there_is(stock,"stock")
 
 def get_product_id():
-    while True:
-        product_id = get_input("enter product id: ","product id")
-        if check_num(product_id):
-            return int(product_id)
-        print("id must be a positive number")
+    product_id = get_input("enter product id: ","product id")
+    show_num_error_if_there_is(product_id,"id")
 
 def get_remove_product():
     while True:
@@ -47,14 +43,12 @@ def get_remove_product():
 
 def get_units_num():
     units = get_input("enter units number: ","units number")
-    if check_num(units):
-        return int(units)
-    print("units must be a positive number")
+    show_num_error_if_there_is(units,"units")        
 
 def get_max_stock():
-    while True:
-        max_stock = get_input("enter the max stock number to show: ", "stock number")
-        if check_num(max_stock):
-            return int(max_stock)
-        print("stock must be a positive number")
+    max_stock = get_input("enter the max stock number to show: ", "stock number")
+    show_num_error_if_there_is(max_stock,"sotck nimber")
 
+def get_quantity():
+    quantity = get_input("enter_quantity: ","quantity")
+    show_num_error_if_there_is(quantity,"quantity")

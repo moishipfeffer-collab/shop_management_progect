@@ -1,5 +1,6 @@
 from inputs import get_max_stock
 from products import get_product_by_id
+import os
 
 def show_inventory_menu():
     while True:
@@ -47,6 +48,8 @@ def show_out_products(products):
     for product in products:
         if product["stock"] == 0:
             print(product["name"])
+            return True
+    return False
 
 # option 6 Show products with low stock.
 
@@ -55,3 +58,5 @@ def show_low_products(products):
     for product in products:
         if product["stock"] <= stock_num:
             print(f"product: {product['name']}, stock: {product['stock']}")
+            return True
+    return False

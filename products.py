@@ -1,7 +1,10 @@
 from inputs import get_product_name,get_category,get_product_price,get_stock
-from inputs import get_product_id,get_remove_product
+from inputs import get_product_id,get_remove_product,get_enter
+import os
+
 
 def show_products_management_menu():
+    os.system("clear")
     while True:
         print("""
 ----------- PRODUCTS MANAGEMENT -----------
@@ -16,6 +19,7 @@ def show_products_management_menu():
         if choise in ["1","2","3","4","5","6"]:
             return choise
         print("\nnot valid choise")
+
 
 # option 1 add product 
 

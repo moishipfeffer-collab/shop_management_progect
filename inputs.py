@@ -1,38 +1,40 @@
 from validations import check_empty,check_num
 
-def get_input(massage,input_type):
+def get_input(message,input_type):
     valid = False
     while not valid:
-        user_input = input(massage)
+        user_input = input(message)
         if check_empty(user_input):
             return user_input
         print(f"{input_type} can not be empty")
 
-def show_num_error_if_there_is(user_input,num):
+def get_num(message,num):
     valid = False
     while not valid:
-        if check_num(user_input):
-            return int(user_input)
+        user_input = get_input(message,num)
+        if num == "price":
+            if check_num(user_input,"float"):
+                return float(user_input)
+        else:
+            if check_num(user_input):
+                return int(user_input)
         print(f"{num} must be a positive number")
         
 
 def get_product_name():
-        get_input("enter product name: ","product name")
+    return get_input("enter product name: ","product name")
 
 def get_category():
-    get_input("enter product category: ","category")
+    return get_input("enter product category: ","category")
 
 def get_product_price():
-    price = get_input("enter product price: ","price")
-    show_num_error_if_there_is(price,"price")
+    return get_num("ter product price: ","price")
 
 def get_stock():
-    stock = get_input("enter beggining stock: ","stock")
-    show_num_error_if_there_is(stock,"stock")
+    return get_num("enter beggining stock: ","stock")
 
 def get_product_id():
-    product_id = get_input("enter product id: ","product id")
-    show_num_error_if_there_is(product_id,"id")
+    return get_num("enter product id: ","product id")
 
 def get_remove_product():
     while True:
@@ -42,13 +44,13 @@ def get_remove_product():
         print("not valid input")
 
 def get_units_num():
-    units = get_input("enter units number: ","units number")
-    show_num_error_if_there_is(units,"units")        
+    return get_num("enter units number: ","units number")
 
 def get_max_stock():
-    max_stock = get_input("enter the max stock number to show: ", "stock number")
-    show_num_error_if_there_is(max_stock,"sotck nimber")
+    return get_num("enter the max stock number to show: ", "stock number")
 
 def get_quantity():
-    quantity = get_input("enter_quantity: ","quantity")
-    show_num_error_if_there_is(quantity,"quantity")
+    return get_num("enter_quantity: ","quantity")
+
+def get_enter():
+    return input("\nEnter to return: ")
